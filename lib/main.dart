@@ -26,6 +26,12 @@ class SimpleCalc extends StatefulWidget {
 }
 
 class _SimpleCalcState extends State<SimpleCalc> {
+  String equation = "0";
+  String result = "0";
+  String expression = "";
+  double equationFontSize = 36.0;
+  double resultFontSize = 46.0;
+
   // buttonPressed function to handle all operations
   buttonPressed(String buttonText) {}
 
@@ -40,12 +46,16 @@ class _SimpleCalcState extends State<SimpleCalc> {
         color: buttonColor,
         child: ElevatedButton(
           onPressed: () => buttonPressed(buttonText),
-          child: Text(buttonText,
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 36,
-                  color: Colors.white)),
+          style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all(buttonColor)),
+          child: Text(
+            buttonText,
+            textAlign: TextAlign.center,
+            style: const TextStyle(
+                fontWeight: FontWeight.w300,
+                fontSize: 36.0,
+                color: Colors.white),
+          ),
         ),
       ),
     );
@@ -66,17 +76,17 @@ class _SimpleCalcState extends State<SimpleCalc> {
           Container(
             alignment: Alignment.centerRight,
             padding: const EdgeInsets.fromLTRB(10, 20, 10, 0),
-            child: const Text(
-              "0",
-              style: TextStyle(fontSize: 36.0),
+            child: Text(
+              equation,
+              style: TextStyle(fontSize: equationFontSize),
             ),
           ),
           Container(
             alignment: Alignment.centerRight,
             padding: const EdgeInsets.fromLTRB(10, 30, 10, 0),
-            child: const Text(
-              "0",
-              style: TextStyle(fontSize: 48.0),
+            child: Text(
+              result,
+              style: TextStyle(fontSize: resultFontSize),
             ),
           ),
           const Expanded(child: Divider()),
