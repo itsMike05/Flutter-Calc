@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:math_expressions/math_expressions.dart';
 
 void main() {
   runApp(Calculator());
@@ -44,6 +45,18 @@ class _SimpleCalcState extends State<SimpleCalc> {
           equation = "0";
         }
       } else if (buttonText == "=") {
+        expression = equation;
+        expression = expression.replaceAll("x", "*");
+
+        try {
+          Parser p = Parser();
+          Expression exp = p.parse(expression);
+
+          ContextModel cm = ContextModel();
+          result = "${exp.evaluate(EvaluationType.REAL, cm)}";
+        } catch (e) {
+          print("An error occured!");
+        }
       } else {
         if (equation == "0") {
           equation = buttonText;
