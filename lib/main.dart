@@ -33,7 +33,26 @@ class _SimpleCalcState extends State<SimpleCalc> {
   double resultFontSize = 46.0;
 
   // buttonPressed function to handle all operations
-  buttonPressed(String buttonText) {}
+  buttonPressed(String buttonText) {
+    setState(() {
+      if (buttonText == "C") {
+        equation = "0";
+        result = "0";
+      } else if (buttonText == "Del") {
+        equation = equation.substring(0, equation.length - 1);
+        if (equation.isEmpty) {
+          equation = "0";
+        }
+      } else if (buttonText == "=") {
+      } else {
+        if (equation == "0") {
+          equation = buttonText;
+        } else {
+          equation += buttonText;
+        }
+      }
+    });
+  }
 
   // General button Widget
   Widget buildButton(
