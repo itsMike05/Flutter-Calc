@@ -1,3 +1,3 @@
-# flutter_calculator
+# Flutter Calculator
 
-A new Flutter project.
+Simple Calculator built using Flutter.
