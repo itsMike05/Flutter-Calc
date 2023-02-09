@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:math_expressions/math_expressions.dart';
 
 void main() {
-  runApp(Calculator());
+  runApp(const Calculator());
 }
 
 class Calculator extends StatelessWidget {
@@ -14,7 +14,7 @@ class Calculator extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: "Flutter Calculator",
       theme: ThemeData(primarySwatch: Colors.blue),
-      home: SimpleCalc(),
+      home: const SimpleCalc(),
     );
   }
 }
@@ -55,6 +55,7 @@ class _SimpleCalcState extends State<SimpleCalc> {
           ContextModel cm = ContextModel();
           result = "${exp.evaluate(EvaluationType.REAL, cm)}";
         } catch (e) {
+          // ignore: avoid_print
           print("An error occured!");
         }
       } else {
