@@ -79,8 +79,7 @@ class _SimpleCalcState extends State<SimpleCalc> {
         color: buttonColor,
         child: ElevatedButton(
           onPressed: () => buttonPressed(buttonText),
-          style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.all(buttonColor)),
+          style: ElevatedButton.styleFrom(backgroundColor: buttonColor),
           child: Text(
             buttonText,
             textAlign: TextAlign.center,
