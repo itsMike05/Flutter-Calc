@@ -72,7 +72,7 @@ class _SimpleCalcState extends State<SimpleCalc> {
   Widget buildButton(
       String buttonText, double buttonHeight, Color buttonColor) {
     return Padding(
-      padding: const EdgeInsets.all(0.75),
+      padding: const EdgeInsets.all(1),
       child: Container(
         // Covering 10% of the device's height
         height: MediaQuery.of(context).size.height * 0.1 * buttonHeight,
@@ -80,10 +80,8 @@ class _SimpleCalcState extends State<SimpleCalc> {
         child: ElevatedButton(
           onPressed: () => buttonPressed(buttonText),
           style: ElevatedButton.styleFrom(
-              backgroundColor: buttonColor,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(12),
-              )),
+            backgroundColor: buttonColor,
+          ),
           child: Text(
             buttonText,
             textAlign: TextAlign.center,
